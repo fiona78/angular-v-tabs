@@ -21,30 +21,33 @@
 
   <h2>Vertical v-tabs</h2>
 <!-- Do i need a main v-tab holder? ie ui-tree? -->
+<tabs>
 
-<tabs class="main">
-     <tab title='User details'>User details
-        <tabs class="sub">
-            <tab title='Personal'>Personal</tab>
-            <tab title='Adresses'>Address</tab>
-            <tab title='Notifications'>Notifications</tab>
-        </tabs>
-    </tab>
-    <tab title='Single tab'>Single tab
-    </tab> 
-    <tab title='Single tab two'>Single tab two
-    </tab>
-    <tab title='Single tab two'>Single tab three
-    </tab>
-    <tab title='Employees'>Employees
-         <tabs class="sub">
-            <tab title='Personal2'>Personal2</tab>
-            <tab title='Adresses2'>Adresses2</tab>
-            <tab title='Notifications2'>Notifications2</tab>
-        </tabs>
-    </tab>
+    <tabsgroup class="main">
+         <tab title='User details'>User details
+            <tabsgroup class="sub">
+                <tab title='Personal'>Personal</tab>
+                <tab title='Adresses'>Address</tab>
+                <tab title='Notifications'>Notifications</tab>
+            </tabsgroup>
+        </tab>
+        <tab title='Single tab'>Single tab
+        </tab> 
+        <tab title='Single tab two'>Single tab two
+        </tab>
+        <tab title='Single tab two'>Single tab three
+        </tab>
+        <tab title='Employees'>Employees
+             <tabsgroup class="sub">
+                <tab title='Personal2'>Personal2</tab>
+                <tab title='Adresses2'>Adresses2</tab>
+                <tab title='Notifications2'>Notifications2</tab>
+            </tabsgroup>
+        </tabsgroup>
 
-</tabs>
+    </tabsgroup>
+
+<tabs>
 
 <script src="js/tabs.js"></script>
 </body>

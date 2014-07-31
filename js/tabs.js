@@ -2,7 +2,7 @@ angular.module( 'vTabs', [] )
 
 //tabs directive
 
-.directive('tabs', function(){
+.directive('tabsgroup', function(){
     return{
        require: '?^tab',
         restrict: 'EA',
@@ -44,7 +44,7 @@ angular.module( 'vTabs', [] )
 
 .directive('tab', function(){
     return{
-       require: '^tabs',
+       require: '^tabsgroup',
         restrict: 'EA',
         //replace:true,
         scope: {
@@ -56,7 +56,7 @@ angular.module( 'vTabs', [] )
                 return $scope.title;
             };
 
-            $scope.test ="fiona";
+           
 
         },
 
@@ -66,17 +66,37 @@ angular.module( 'vTabs', [] )
             //console.log(scope.nestedTabs);
             console.log("tab - own title: ", scope.title);
 
-            /*element.css({      
-            backgroundColor: 'lightgrey',
-            cursor: 'pointer'
-            });*/
-
-
+            //create an on mouse down here for each tab
 
         }
-    };//
+    };
 
      
+
+})//end of directive
+
+.directive('tabs', function(){
+    return{
+//this will need to register every tab
+//so every tab has to register with tabs
+//try doing teh same as tabsgroup for example need to create an array?
+             require: '?^tab',
+             restrict: 'EA',
+
+              controller: function($scope,  $element) {
+                    var allTabs = $scope.allTabs = [];
+
+                 //create a function which adds the tabs
+                    this.addEachTab = function(tab){                 
+                    allTabs.push(tab);               
+                 
+                };
+
+              }//end of controller
+            
+
+
+    }
 
 })//end of directive
 

@@ -7,10 +7,11 @@ body{
 
 /*general tabs*/
 
-tabs{
+tabsgroup{
 	display:block;
 	//background:#F0F0F0;
-	width:520px;
+	width:155px;
+	border:1px solid black;
 
 }
 
@@ -28,7 +29,7 @@ tab{
 }
 
 
-	tabs.main > tab{
+	tabsgroup.main > tab{
 	position:relative;
 	display: block;
 	background:#F0F0F0;
@@ -41,8 +42,9 @@ tab{
 			background-color:#fff;
 			}
 
-			tabs.sub{
+			tabsgroup.sub{
 			margin-top:4px;
+			border:none;
 			//background-color: purple;
 			//margin:5px;
 			//position: absolute;
@@ -55,7 +57,7 @@ tab{
 
 }
 	 
-tabs.sub > tab{
+tabsgroup.sub > tab{
 	background:#ccc;
 
 
@@ -69,7 +71,7 @@ tabs.sub > tab{
 }
 
 
-tabs.sub > tab:last-child{
+tabsgroup.sub > tab:last-child{
 	border-bottom:none;
 
 

@@ -7,13 +7,14 @@ body {
 
 /*general tabs*/
 /* line 10, ../sass/vTab.scss */
-tabs {
+tabsgroup {
   display: block;
-  width: 520px;
+  width: 155px;
+  border: 1px solid black;
 }
 
 /*general tab*/
-/* line 19, ../sass/vTab.scss */
+/* line 20, ../sass/vTab.scss */
 tab {
   display: block;
   padding: 5px 5px 5px 8px;
@@ -24,40 +25,41 @@ tab {
   line-height: 1.5em;
 }
 
-/* line 31, ../sass/vTab.scss */
-tabs.main > tab {
+/* line 32, ../sass/vTab.scss */
+tabsgroup.main > tab {
   position: relative;
   display: block;
   background: #F0F0F0;
   margin-left: 2px;
   width: 140px;
 }
-/* line 39, ../sass/vTab.scss */
-tabs.main > tab:hover {
+/* line 40, ../sass/vTab.scss */
+tabsgroup.main > tab:hover {
   color: black;
   background-color: #fff;
 }
-/* line 44, ../sass/vTab.scss */
-tabs.main > tab tabs.sub {
+/* line 45, ../sass/vTab.scss */
+tabsgroup.main > tab tabsgroup.sub {
   margin-top: 4px;
+  border: none;
   z-index: 999px;
   width: 140px;
 }
 
-/* line 58, ../sass/vTab.scss */
-tabs.sub > tab {
+/* line 60, ../sass/vTab.scss */
+tabsgroup.sub > tab {
   background: #ccc;
 }
-/* line 62, ../sass/vTab.scss */
-tabs.sub > tab:last-child {
+/* line 64, ../sass/vTab.scss */
+tabsgroup.sub > tab:last-child {
   border-bottom: none;
 }
-/* line 66, ../sass/vTab.scss */
-tabs.sub > tab:hover {
+/* line 68, ../sass/vTab.scss */
+tabsgroup.sub > tab:hover {
   color: white;
 }
 
-/* line 72, ../sass/vTab.scss */
-tabs.sub > tab:last-child {
+/* line 74, ../sass/vTab.scss */
+tabsgroup.sub > tab:last-child {
   border-bottom: none;
 }
