@@ -9,11 +9,32 @@ angular.module( 'vTabs', [] )
         //replace:true,
 
         controller: function($scope,  $element) {
+
+             //create an empty array within the scope called nestedtabs
+            var nestedTabs = $scope.nestedTabs = [];
+
+                 //create a function which adds the tabs
+                 this.addTab = function(tab){
+
+
+                    //if (nestedTabs.length === 0) {
+                    nestedTabs.push(tab);
+                    //console.log($scope.nestedTabs);
+                   // }
+                };
+
         },
 
         link: function( scope, element, attrs, tabCtrl ) {
             if ( tabCtrl ) {
-                console.log( tabCtrl.getTitle() );
+                //console.log( tabCtrl.getTitle() );
+                //console.log(scope.nestedTabs);//shows entire scope of arrays
+                console.log(scope.nestedTabs[1].title);//Adresses
+     
+                 angular.forEach(scope.nestedTabs, function(tab) {
+                    console.log(tab.title);
+                });
+
             }
         }
     };//end of return
@@ -36,7 +57,12 @@ angular.module( 'vTabs', [] )
             }
         },
 
-        link: function( scope, element, attrs, vTabsCtrl ) { 
+        link: function( scope, element, attrs, tabsCtrl ) { 
+            //add teh tab to the tabs array
+            tabsCtrl.addTab(scope);
+            //console.log(scope.nestedTabs);
+
+
         }
     };//end of return
 
