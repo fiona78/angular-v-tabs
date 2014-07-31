@@ -1,0 +1,56 @@
+/* line 1, ../sass/vTab.scss */
+body {
+  box-sizing: border-box;
+  font-family: "open sans", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+
+/*general tabs*/
+/* line 10, ../sass/vTab.scss */
+tabs {
+  display: block;
+}
+
+/*general tab*/
+/* line 19, ../sass/vTab.scss */
+tab {
+  display: block;
+  background-color: green;
+  padding: 5px 5px 5px 8px;
+  border-bottom: 1px solid black;
+  width: 130px;
+  color: #0F87B6;
+  font-size: 14px;
+  line-height: 1.5em;
+}
+
+/*this will target the direct descendantd of the main tab*/
+/* line 35, ../sass/vTab.scss */
+tabs.main > tab {
+  display: block;
+  background: #F0F0F0;
+  margin-left: 2px;
+  border-bottom: 1px solid black;
+}
+
+/* line 44, ../sass/vTab.scss */
+tabs.sub {
+  margin-top: -25px;
+  margin-left: 135px;
+  width: 400px;
+}
+
+/* line 52, ../sass/vTab.scss */
+tabs.sub > tab {
+  background: #ccc;
+}
+
+/* line 60, ../sass/vTab.scss */
+tab:hover {
+  background-color: #e6e6e6;
+}
+
+/* line 65, ../sass/vTab.scss */
+.btn-selected {
+  background-color: #e6e6e6;
+}

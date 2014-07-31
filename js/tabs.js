@@ -8,19 +8,17 @@ angular.module( 'vTabs', [] )
         restrict: 'EA',
         //replace:true,
 
+
+
         controller: function($scope,  $element) {
 
              //create an empty array within the scope called nestedtabs
             var nestedTabs = $scope.nestedTabs = [];
 
                  //create a function which adds the tabs
-                 this.addTab = function(tab){
-
-
-                    //if (nestedTabs.length === 0) {
-                    nestedTabs.push(tab);
-                    //console.log($scope.nestedTabs);
-                   // }
+                 this.addTab = function(tab){                 
+                    nestedTabs.push(tab);               
+                 
                 };
 
         },
@@ -39,6 +37,8 @@ angular.module( 'vTabs', [] )
         }
     };//end of return
 
+
+
 })//end of directive
 
 
@@ -54,7 +54,10 @@ angular.module( 'vTabs', [] )
         controller: function($scope,  $element) {
             this.getTitle = function() {
                 return $scope.title;
-            }
+            };
+
+            $scope.test ="fiona";
+
         },
 
         link: function( scope, element, attrs, tabsCtrl ) { 
@@ -63,13 +66,21 @@ angular.module( 'vTabs', [] )
             //console.log(scope.nestedTabs);
             console.log("tab - own title: ", scope.title);
 
+            /*element.css({      
+            backgroundColor: 'lightgrey',
+            cursor: 'pointer'
+            });*/
+
+
 
         }
-    };//end of return
+    };//
+
+     
 
 })//end of directive
 
-;
+
 
 
 
