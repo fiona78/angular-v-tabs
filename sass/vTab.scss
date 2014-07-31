@@ -1,70 +1,73 @@
 body{
-box-sizing: border-box;
-font-family: "open sans", Helvetica, Arial, sans-serif;
-font-weight: 400;
+	box-sizing: border-box;
+	font-family: "open sans", Helvetica, Arial, sans-serif;
+	font-weight: 400;
 }
 
 
-
 /*general tabs*/
+
 tabs{
-display:block;
-//background-color: red;
-//padding:10px;
-//width:500px;
+	display:block;
 
 }
 
 /*general tab*/
 tab{
 	display: block;
-    background-color:green;
-   //margin-left:40px;
-    padding:5px 5px 5px 8px;
-    border-bottom:1px solid black;
-    width:130px;
-
-    color: #0F87B6;
+	//background-color:green;
+	padding:5px 5px 5px 8px;
+	border-bottom:1px solid black;
+	width:130px;
+	color: #0F87B6;
 	font-size: 14px;
 	line-height: 1.5em;
 }
 
+tabs.main {
+	//position:relative;
+}
 
+/*this will target all the the direct descendantd of the main tab*/
 
-/*this will target the direct descendantd of the main tab*/
-tabs.main > tab{
+	tabs.main > tab{
+	position:relative;
 	display: block;
-    background:#F0F0F0;
-    margin-left:2px;
-    
-    border-bottom:1px solid black;
-    
+	background:#F0F0F0;
+	margin-left:2px;
+	border-bottom:1px solid black;
+
+}
+
+tabs.main > tab tabs.sub{
+	background-color: purple;
+	position: absolute;
+	top: 0px;
+	left: 145px;
+	z-index: 999px;
 }
 
 tabs.sub{
-	//background-color: pink;
-	margin-top:-25px;
-	margin-left:135px;
-	width:400px;
 
 }
 
 tabs.sub > tab{
-	
-    background:#ccc;
-   
-   
-    
+	background:#ccc;
 }
 
 tab:hover{
-background-color: #e6e6e6;	
+	background-color: #e6e6e6;	
 }
 
 
 .btn-selected{
-	
 	background-color: #e6e6e6;
 }
+
+
+
+
+
+
 
 

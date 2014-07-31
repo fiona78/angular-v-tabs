@@ -12,10 +12,9 @@ tabs {
 }
 
 /*general tab*/
-/* line 19, ../sass/vTab.scss */
+/* line 16, ../sass/vTab.scss */
 tab {
   display: block;
-  background-color: green;
   padding: 5px 5px 5px 8px;
   border-bottom: 1px solid black;
   width: 130px;
@@ -24,33 +23,36 @@ tab {
   line-height: 1.5em;
 }
 
-/*this will target the direct descendantd of the main tab*/
-/* line 35, ../sass/vTab.scss */
+/*this will target all the the direct descendantd of the main tab*/
+/* line 33, ../sass/vTab.scss */
 tabs.main > tab {
+  position: relative;
   display: block;
   background: #F0F0F0;
   margin-left: 2px;
   border-bottom: 1px solid black;
 }
 
-/* line 44, ../sass/vTab.scss */
-tabs.sub {
-  margin-top: -25px;
-  margin-left: 135px;
-  width: 400px;
+/* line 42, ../sass/vTab.scss */
+tabs.main > tab tabs.sub {
+  background-color: purple;
+  position: absolute;
+  top: 0px;
+  left: 145px;
+  z-index: 999px;
 }
 
-/* line 52, ../sass/vTab.scss */
+/* line 54, ../sass/vTab.scss */
 tabs.sub > tab {
   background: #ccc;
 }
 
-/* line 60, ../sass/vTab.scss */
+/* line 58, ../sass/vTab.scss */
 tab:hover {
   background-color: #e6e6e6;
 }
 
-/* line 65, ../sass/vTab.scss */
+/* line 63, ../sass/vTab.scss */
 .btn-selected {
   background-color: #e6e6e6;
 }
