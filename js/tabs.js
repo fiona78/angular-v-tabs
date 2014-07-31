@@ -27,12 +27,12 @@ angular.module( 'vTabs', [] )
 
         link: function( scope, element, attrs, tabCtrl ) {
             if ( tabCtrl ) {
-                //console.log( tabCtrl.getTitle() );
+                console.log( "Parent tab: ", tabCtrl.getTitle() );
                 //console.log(scope.nestedTabs);//shows entire scope of arrays
-                console.log(scope.nestedTabs[1].title);//Adresses
+                //console.log(scope.nestedTabs[1].title);//Adresses
      
                  angular.forEach(scope.nestedTabs, function(tab) {
-                    console.log(tab.title);
+                    console.log("nested tab:", tab.title);
                 });
 
             }
@@ -61,6 +61,7 @@ angular.module( 'vTabs', [] )
             //add teh tab to the tabs array
             tabsCtrl.addTab(scope);
             //console.log(scope.nestedTabs);
+            console.log("tab - own title: ", scope.title);
 
 
         }
