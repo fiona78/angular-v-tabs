@@ -9,10 +9,13 @@ body{
 
 tabs{
 	display:block;
+	//background:#F0F0F0;
+	width:520px;
 
 }
 
 /*general tab*/
+
 tab{
 	display: block;
 	//background-color:green;
@@ -30,16 +33,23 @@ tab{
 	display: block;
 	background:#F0F0F0;
 	margin-left:2px;
-	border-bottom:1px solid black;
+	width: 140px;
+	//border-bottom:1px solid black;
+
+			&:hover{
+			color:black;	
+			background-color:#fff;
+			}
 
 			tabs.sub{
-			background-color: purple;
-			position: absolute;
-			top: 0px;
-			left: 145px;
+			margin-top:4px;
+			//background-color: purple;
+			//margin:5px;
+			//position: absolute;
+			//top: 0px;
+			//left: 145px;
 			z-index: 999px;
-
-
+			width:140px;
 
 		    }
 
@@ -47,11 +57,26 @@ tab{
 	 
 tabs.sub > tab{
 	background:#ccc;
+
+
+	&:last-child{
+	border-bottom:none;
+	}
+
+	&:hover{
+	color:white;	
+	}
 }
 
-tab:hover{
-	background-color: #e6e6e6;	
+
+tabs.sub > tab:last-child{
+	border-bottom:none;
+
+
 }
+
+
+
 
 
 
