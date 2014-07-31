@@ -21,18 +21,19 @@
 
   <h2>Vertical v-tabs</h2>
 <!-- Do i need a main v-tab holder? ie ui-tree? -->
-<v-tabs title="User Settings">
-    <v-tabs title="Main">
-        <v-tab>Home</v-tab>
-        <v-tab>About</v-tab>
-        <v-tab>{{testing}}</v-tab>
-        <v-tabs>
-            <v-tab>home nest</v-tab>
-            <v-tab>home nest2</v-tab>
-        </v-tabs>
-    </v-tabs>
-    <v-tab>tab alone</v-tab>
-</v-tabs>
+
+<tabs>
+    <tab title='User details'>
+        <tabs>
+            <tab title='Personal'></tab>
+            <tab title='Adresses'></tab>
+            <tab title='Notifications'></tab>
+        </tabs>
+    </tab>
+    <tab title='Employess'>
+    </tab>
+
+</tabs>
 
 <script src="js/tabs.js"></script>
 </body>
