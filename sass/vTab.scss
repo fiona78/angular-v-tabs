@@ -24,11 +24,6 @@ tab{
 	line-height: 1.5em;
 }
 
-tabs.main {
-	//position:relative;
-}
-
-/*this will target all the the direct descendantd of the main tab*/
 
 	tabs.main > tab{
 	position:relative;
@@ -37,20 +32,19 @@ tabs.main {
 	margin-left:2px;
 	border-bottom:1px solid black;
 
+			tabs.sub{
+			background-color: purple;
+			position: absolute;
+			top: 0px;
+			left: 145px;
+			z-index: 999px;
+
+
+
+		    }
+
 }
-
-tabs.main > tab tabs.sub{
-	background-color: purple;
-	position: absolute;
-	top: 0px;
-	left: 145px;
-	z-index: 999px;
-}
-
-tabs.sub{
-
-}
-
+	 
 tabs.sub > tab{
 	background:#ccc;
 }
@@ -60,9 +54,6 @@ tab:hover{
 }
 
 
-.btn-selected{
-	background-color: #e6e6e6;
-}
 
 
 
