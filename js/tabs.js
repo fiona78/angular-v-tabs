@@ -21,10 +21,6 @@ angular.module( 'vTabs', [] )
 
         link: function( scope, element, attrs, tabCtrl ) {
             if ( tabCtrl ) {
-                  //console.log( "Parent tab: ", tabCtrl.getTitle() );
-                  //console.log(scope.nestedTabs);//shows entire scope of arrays
-                  //console.log(scope.nestedTabs[1].title);//Adresses
-     
                  angular.forEach(scope.nestedTabs, function(tab) {
                     //console.log("nested tab:", tab.title);
                 });
@@ -73,23 +69,11 @@ angular.module( 'vTabs', [] )
             tabsCtrl.addTab(scope);
             /*controllersArr[1].onTabClick();*/
             
-       
-
-            //console.log(scope.nestedTabs);
-            //console.log("tab- ", scope.title);
-            //console.log(scope.$id);
 
             element.on('click', function() {
             
-                 //console.log(element[0].title);
-                 //console.log(element);
-                  //scope.selected = element[0].title;
-
-
-                  //console.log(scope.selected);
-
                   //need to call teh parent function controller
-                  tabsCtrl.onTabClick(element);
+                  tabsCtrl.onTabClick(scope);
 
             });
  
@@ -104,8 +88,6 @@ angular.module( 'vTabs', [] )
 
 .directive('tabs', function(){
     return{
-//this will need to register every tab
-//use the same code as tabs group
 
              restrict: 'EA',
 
@@ -119,11 +101,9 @@ angular.module( 'vTabs', [] )
                         allTabs.push(tab);  
                         //console.log("allTabs array ", allTabs);
                         
-                        this.onTabClick = function(element) {
-                          //work with thje data from the child click function
-                        //return $scope.selected;
-                        $scope.selected = element[0].title;
-                        console.log($scope.selected);
+                        this.onTabClick = function(tab) {
+                         
+                      console.log(tab);
                         };
 
                     };

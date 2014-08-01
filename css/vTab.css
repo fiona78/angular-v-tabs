@@ -63,3 +63,8 @@ tabsgroup.sub > tab:hover {
 tabsgroup.sub > tab:last-child {
   border-bottom: none;
 }
+
+/* line 80, ../sass/vTab.scss */
+.green {
+  background-color: green;
+}
