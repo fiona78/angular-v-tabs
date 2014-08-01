@@ -43,7 +43,9 @@ angular.module( 'vTabs', [] )
        require: ['^tabsgroup', '^tabs'],
         restrict: 'EA',
         scope: {
-            title: "@title"
+            title: "@title",
+           
+
         },
 
         controller: function($scope,  $element) {
@@ -51,11 +53,10 @@ angular.module( 'vTabs', [] )
                 return $scope.title;
             };
 
-          
-                 //console.log($scope.$id);
-                 //console.log($scope.title);
-               
-               
+           
+                this.isSelected = function() {
+                return $scope.selected;
+            };
            
 
         },
@@ -65,9 +66,23 @@ angular.module( 'vTabs', [] )
             //console.log(scope.tabIds);
             controllersArr[0].addTab(scope);
             controllersArr[1].addTab(scope);
+            controllersArr[1].isSelected();
+            //controllersArr[1].scope.selected;
+       
+
             //console.log(scope.nestedTabs);
             //console.log("tab- ", scope.title);
             //console.log(scope.$id);
+
+            element.on('click', function() {
+            
+                 //console.log(element[0].title);
+                 //console.log(element);
+                  scope.selected = element[0].title;
+                  console.log(scope.selected);
+            });
+ 
+           
 
         }
     };
@@ -91,25 +106,22 @@ angular.module( 'vTabs', [] )
                      //create a function which adds the tabs
                         this.addTab = function(tab){                 
                         allTabs.push(tab);  
-                        console.log("allTabs array ", allTabs);
-                        //console.log("array ", allTabs[0]);
-
-
+                        //console.log("allTabs array ", allTabs);
+                        
+                        this.isSelected = function() {
+                        return $scope.selected;
+                        };
 
                     };
 
-                    
-                   console.log("test", $scope.allTabs);
+         
 
               },
 
-              link: function( scope, element, attrs, controller ) {
-
-                 console.log("tabs from link  ", scope.allTabs);
-
+              link: function( scope, element, attrs, tabCtrl ) {
+                console.log(scope.selected);
 
               }
-            
 
 
     }
