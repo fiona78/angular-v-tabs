@@ -6,19 +6,15 @@ angular.module( 'vTabs', [] )
     return{
        require: '?^tab',
         restrict: 'EA',
-        //replace:true,
-
-
 
         controller: function($scope,  $element) {
 
-             //create an empty array within the scope called nestedtabs
+           
             var nestedTabs = $scope.nestedTabs = [];
 
-                 //create a function which adds the tabs
                  this.addTab = function(tab){                 
-                    nestedTabs.push(tab);               
-                 
+                    nestedTabs.push(tab);  
+
                 };
 
         },
@@ -55,31 +51,23 @@ angular.module( 'vTabs', [] )
                 return $scope.title;
             };
 
+          
+                 //console.log($scope.$id);
+                 //console.log($scope.title);
+               
+               
            
 
         },
 
         link: function( scope, element, attrs, controllersArr ) { 
       
+            //console.log(scope.tabIds);
             controllersArr[0].addTab(scope);
+            controllersArr[1].addTab(scope);
             //console.log(scope.nestedTabs);
-            console.log("tab- ", scope.title);
-
-            //create an on mouse down here for each tab
-            var tabButtons = element.find('tab');
-            //console.log(tabButtons); 
-            angular.forEach(tabButtons, function (tabButton){
-           
-                    console.log(tabButton);//this only finds the nested tabs!
-
-                    $(tabButton).on( 'click', function(){
-                       
-                        console.log("clicked", this);
-                    });
-                      
-                        
-
-            });   
+            //console.log("tab- ", scope.title);
+            //console.log(scope.$id);
 
         }
     };
@@ -91,29 +79,34 @@ angular.module( 'vTabs', [] )
 .directive('tabs', function(){
     return{
 //this will need to register every tab
+//use the same code as tabs group
 
-             //require: '?^tab',
              restrict: 'EA',
 
               controller: function($scope,  $element) {
 
-                    var allTabs = $scope.allTabs = [];
 
-                   
+                     var allTabs = $scope.allTabs = [];
 
-              },//end of controller
+                     //create a function which adds the tabs
+                        this.addTab = function(tab){                 
+                        allTabs.push(tab);  
+                        console.log("allTabs array ", allTabs);
+                        //console.log("array ", allTabs[0]);
 
-              link: function( scope, element, attrs, tabCtrl ) {
 
-                
-                    if ( tabCtrl ) {
-                     
-                        //tabCtrl.getTitle();
-                        console.log("all titles: ", scope.title);
-                        //console.log(tabCtrl.title);
-                        
-                        
-                      }
+
+                    };
+
+                    
+                   console.log("test", $scope.allTabs);
+
+              },
+
+              link: function( scope, element, attrs, controller ) {
+
+                 console.log("tabs from link  ", scope.allTabs);
+
 
               }
             
