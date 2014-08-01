@@ -56,6 +56,8 @@ angular.module( 'vTabs', [] )
            
                 this.isSelected = function() {
                 return $scope.selected;
+                console.log($scope.selected);
+
             };
            
 
@@ -63,11 +65,14 @@ angular.module( 'vTabs', [] )
 
         link: function( scope, element, attrs, controllersArr ) { 
       
+            var tabsgroupCtrl = controllersArr[0];
+            var tabsCtrl = controllersArr[1];
+
             //console.log(scope.tabIds);
-            controllersArr[0].addTab(scope);
-            controllersArr[1].addTab(scope);
-            controllersArr[1].isSelected();
-            //controllersArr[1].scope.selected;
+            tabsgroupCtrl.addTab(scope);
+            tabsCtrl.addTab(scope);
+            /*controllersArr[1].onTabClick();*/
+            
        
 
             //console.log(scope.nestedTabs);
@@ -78,8 +83,14 @@ angular.module( 'vTabs', [] )
             
                  //console.log(element[0].title);
                  //console.log(element);
-                  scope.selected = element[0].title;
-                  console.log(scope.selected);
+                  //scope.selected = element[0].title;
+
+
+                  //console.log(scope.selected);
+
+                  //need to call teh parent function controller
+                  tabsCtrl.onTabClick(element);
+
             });
  
            
@@ -108,8 +119,11 @@ angular.module( 'vTabs', [] )
                         allTabs.push(tab);  
                         //console.log("allTabs array ", allTabs);
                         
-                        this.isSelected = function() {
-                        return $scope.selected;
+                        this.onTabClick = function(element) {
+                          //work with thje data from the child click function
+                        //return $scope.selected;
+                        $scope.selected = element[0].title;
+                        console.log($scope.selected);
                         };
 
                     };
@@ -119,7 +133,7 @@ angular.module( 'vTabs', [] )
               },
 
               link: function( scope, element, attrs, tabCtrl ) {
-                console.log(scope.selected);
+                //console.log(scope.selected);
 
               }
 
