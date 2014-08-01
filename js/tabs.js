@@ -25,12 +25,12 @@ angular.module( 'vTabs', [] )
 
         link: function( scope, element, attrs, tabCtrl ) {
             if ( tabCtrl ) {
-                console.log( "Parent tab: ", tabCtrl.getTitle() );
-                //console.log(scope.nestedTabs);//shows entire scope of arrays
-                //console.log(scope.nestedTabs[1].title);//Adresses
+                  //console.log( "Parent tab: ", tabCtrl.getTitle() );
+                  //console.log(scope.nestedTabs);//shows entire scope of arrays
+                  //console.log(scope.nestedTabs[1].title);//Adresses
      
                  angular.forEach(scope.nestedTabs, function(tab) {
-                    console.log("nested tab:", tab.title);
+                    //console.log("nested tab:", tab.title);
                 });
 
             }
@@ -44,9 +44,8 @@ angular.module( 'vTabs', [] )
 
 .directive('tab', function(){
     return{
-       require: '^tabsgroup',
+       require: ['^tabsgroup', '^tabs'],
         restrict: 'EA',
-        //replace:true,
         scope: {
             title: "@title"
         },
@@ -60,13 +59,27 @@ angular.module( 'vTabs', [] )
 
         },
 
-        link: function( scope, element, attrs, tabsCtrl ) { 
-            //add teh tab to the tabs array
-            tabsCtrl.addTab(scope);
+        link: function( scope, element, attrs, controllersArr ) { 
+      
+            controllersArr[0].addTab(scope);
             //console.log(scope.nestedTabs);
-            console.log("tab - own title: ", scope.title);
+            console.log("tab- ", scope.title);
 
             //create an on mouse down here for each tab
+            var tabButtons = element.find('tab');
+            //console.log(tabButtons); 
+            angular.forEach(tabButtons, function (tabButton){
+           
+                    console.log(tabButton);//this only finds the nested tabs!
+
+                    $(tabButton).on( 'click', function(){
+                       
+                        console.log("clicked", this);
+                    });
+                      
+                        
+
+            });   
 
         }
     };
@@ -78,21 +91,31 @@ angular.module( 'vTabs', [] )
 .directive('tabs', function(){
     return{
 //this will need to register every tab
-//so every tab has to register with tabs
-//try doing teh same as tabsgroup for example need to create an array?
-             require: '?^tab',
+
+             //require: '?^tab',
              restrict: 'EA',
 
               controller: function($scope,  $element) {
+
                     var allTabs = $scope.allTabs = [];
 
-                 //create a function which adds the tabs
-                    this.addEachTab = function(tab){                 
-                    allTabs.push(tab);               
-                 
-                };
+                   
 
-              }//end of controller
+              },//end of controller
+
+              link: function( scope, element, attrs, tabCtrl ) {
+
+                
+                    if ( tabCtrl ) {
+                     
+                        //tabCtrl.getTitle();
+                        console.log("all titles: ", scope.title);
+                        //console.log(tabCtrl.title);
+                        
+                        
+                      }
+
+              }
             
 
 
