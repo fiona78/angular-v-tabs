@@ -103,17 +103,7 @@ angular.module( 'vTabs', [] )
                         
                         this.onTabClick = function(tab) {
                          
-                        //console.log(tab);
-                        console.log(tab.title);
-                        
-
-                        //var tabTest = $element.find(tab);
-                        //tabTest.addClass("green");
-                         //console.log(tab.css('width'));
-
-
-                       
-
+                      console.log(tab.scope);
                         };
 
                     };
@@ -123,16 +113,7 @@ angular.module( 'vTabs', [] )
               },
 
               link: function( scope, element, attrs, tabCtrl ) {
-               
-
-
-              /*  element.bind('click', function(){
-                  var selectedtab = element.find('tab');
-                    console.log(selectedtab);
-                    
-
-                });*/
-
+                //console.log(scope.selected);
 
               }
 
